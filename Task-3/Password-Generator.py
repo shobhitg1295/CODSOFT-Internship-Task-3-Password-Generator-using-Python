@@ -1,3 +1,5 @@
+print("Password Generator")
+
 import random
 
 # ask user for length
