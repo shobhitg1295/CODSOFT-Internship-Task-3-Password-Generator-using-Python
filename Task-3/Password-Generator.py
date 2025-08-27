@@ -10,10 +10,13 @@ symbols = "!@#$%^&*()_-+=<>?/"
 
 # combine all characters
 characters = letters + numbers + symbols
+
+# empty password string
 password = ""
 
+# loop to add random characters
 for i in range(length):
     password = password + random.choice(characters)
 
+# show the password
 print("Generated Password:", password)
-
