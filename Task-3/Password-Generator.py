@@ -1,24 +1,35 @@
-print("Password Generator")
-
 import random
 
-# ask user for length
-length = int(input("Enter the desired password length: "))
+# ask for password length
+length = int(input("Enter the password length: "))
 
-# make lists of letters, numbers and symbols
+# ask for complexity
+print("Choose password complexity:")
+print("1 - Easy (Only letters)")
+print("2 - Medium (Letters + Numbers)")
+print("3 - Strong (Letters + Numbers + Symbols)")
+choice = int(input("Enter your choice (1/2/3): "))
+
+# define character sets
 letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 numbers = "0123456789"
-symbols = "!@#$%^&*()_-+=<>?/"
+symbols = "!@#$%^&*()?"
 
-# combine all characters
-characters = letters + numbers + symbols
+# select characters based on choice
+if choice == 1:
+    chars = letters
+elif choice == 2:
+    chars = letters + numbers
+elif choice == 3:
+    chars = letters + numbers + symbols
+else:
+    print("Invalid choice, using Strong by default")
+    chars = letters + numbers + symbols
 
-# empty password string
+# generate password
 password = ""
-
-# loop to add random characters
 for i in range(length):
-    password = password + random.choice(characters)
+    password = password + random.choice(chars)
 
-# show the password
+# show password
 print("Generated Password:", password)
